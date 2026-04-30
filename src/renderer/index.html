@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <!--
+      限制渲染进程资源来源。
+      作用：配合 Electron 的隔离策略，尽量减少脚本和资源注入面。
+      为什么要有：桌面应用同样需要前端安全边界，尤其这里还承载 IPC 能力。
+    -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self';"
+    />
+    <!-- 视口设置保证不同尺寸窗口中布局都按预期缩放。 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Electron 会议脚手架</title>
+  </head>
+  <body>
+    <!-- Vue 应用挂载点。 -->
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

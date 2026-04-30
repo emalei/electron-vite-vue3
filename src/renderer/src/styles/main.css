@@ -1,0 +1,222 @@
+/* 全局主题变量区：
+   作用：定义渲染进程默认字体、背景和基础文字表现。
+   为什么要有：所有窗口共享一套视觉语言，才能让大厅、会议和子窗口看起来属于同一产品。 */
+:root {
+  color-scheme: dark;
+  font-family: 'Avenir Next', 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  background:
+    radial-gradient(circle at top, rgba(56, 189, 248, 0.18), transparent 28%),
+    radial-gradient(circle at 20% 20%, rgba(251, 191, 36, 0.12), transparent 24%),
+    linear-gradient(180deg, #09111f 0%, #050913 100%);
+  color: #e2e8f0;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 全局盒模型统一为 border-box，避免组件计算尺寸时出现额外边距误差。 */
+* {
+  box-sizing: border-box;
+}
+
+/* 根节点高度和默认边距重置，保证 Electron 窗口从第一像素开始可控布局。 */
+html,
+body,
+#app {
+  min-height: 100%;
+  margin: 0;
+}
+
+/* body 至少撑满视口，防止短内容页面在深色背景上露出默认空白。 */
+body {
+  min-height: 100vh;
+}
+
+/* 表单控件继承字体，保证按钮和正文不出现字体割裂。 */
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+/* 所有按钮统一移除默认边框，并交给语义化按钮类控制具体外观。 */
+button {
+  cursor: pointer;
+  border: 0;
+}
+
+/* 两类按钮共享圆角和过渡效果，形成统一交互语言。 */
+.primary-button,
+.secondary-button {
+  border-radius: 16px;
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    opacity 0.18s ease;
+}
+
+/* 轻微上浮反馈让按钮在桌面端更像可点击的实体控件。 */
+.primary-button:hover,
+.secondary-button:hover {
+  transform: translateY(-1px);
+}
+
+/* 禁用态降低透明度并关闭手型光标，明确当前不可操作。 */
+.primary-button:disabled,
+.secondary-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* 主按钮用于关键动作，例如创建会议。渐变能突出入口优先级。 */
+.primary-button {
+  padding: 0.95rem 1.2rem;
+  background: linear-gradient(135deg, #34d399, #0ea5e9);
+  color: #051320;
+  font-weight: 700;
+}
+
+/* 次按钮用于普通控制项，弱化视觉优先级，避免界面过于嘈杂。 */
+.secondary-button {
+  padding: 0.82rem 1rem;
+  background: rgba(255, 255, 255, 0.06);
+  color: #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* 首页和会议页顶部指标区采用四列网格，方便快速对比关键信息。 */
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+/* 常规内容卡片区采用双列布局，在桌面端保持信息密度和平衡。 */
+.panel-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+/* 统一卡片容器：负责承载说明文本、列表和操作控件。 */
+.panel {
+  padding: 1.2rem;
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.03)),
+    rgba(6, 11, 24, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 50px rgba(1, 5, 14, 0.28);
+}
+
+/* 头部和操作行都需要横向对齐，因此复用同一 flex 模式。 */
+.panel-head,
+.action-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+/* 卡片标题使用更亮颜色，帮助用户快速扫描区块主题。 */
+.panel h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  color: #f8fafc;
+}
+
+/* 卡片说明文字属于辅助信息，颜色要比标题和主值更低调。 */
+.panel p {
+  color: #a8b6d2;
+}
+
+/* 这些列表都属于展示型列表，因此统一去掉浏览器默认样式。 */
+.meeting-list,
+.message-list,
+.member-list,
+.bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+/* 会议列表、消息列表、成员列表都按纵向卡片流呈现。 */
+.meeting-list,
+.message-list,
+.member-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+/* 列表项统一做成轻量卡片，强化内容分组感。 */
+.meeting-list li,
+.message-list li,
+.member-list li {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.85rem 0.95rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* 列表中的 strong 通常承载主识别信息，例如用户名或会议 ID。 */
+.meeting-list strong,
+.message-list strong,
+.member-list strong {
+  color: #f8fafc;
+}
+
+/* 次级正文、说明和空态共用柔和文字色，建立稳定的视觉层级。 */
+.meeting-list span,
+.message-list p,
+.member-list span,
+.eyebrow,
+.empty-state {
+  margin: 0;
+  color: #9fb0cf;
+}
+
+/* 普通项目说明列表使用更松的网格节奏，和数据列表区分开。 */
+.bullet-list {
+  display: grid;
+  gap: 0.75rem;
+  color: #d9e2f4;
+}
+
+/* 子窗口按钮和控制按钮都属于操作网格，只是最小宽度不同。 */
+.chip-grid,
+.control-grid {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+/* 子窗口入口按钮数量有限，适合更紧凑的最小宽度。 */
+.chip-grid {
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+/* 控制按钮文案更长，因此给更大的最小宽度，防止换行过碎。 */
+.control-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+/* 中等宽度以下改为单列，让指标区和卡片区避免拥挤。 */
+@media (max-width: 1100px) {
+  .hero-grid,
+  .panel-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 小屏窗口进一步缩小页面边距，提升可用内容面积。 */
+@media (max-width: 720px) {
+  .workspace-layout {
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "compilerOptions": {
+    // 目标运行时为现代 Electron，对应较新的 JS 语法能力。
+    "target": "ES2022",
+    // 保持类字段语义与现代规范一致，避免转译行为和运行时表现偏离。
+    "useDefineForClassFields": true,
+    // 交给 Vite / electron-vite 处理 ESM 构建。
+    "module": "ESNext",
+    // 渲染层需要 DOM 类型，主进程和共享层需要现代 ES 类型。
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    // 跳过第三方声明文件检查，减少与业务无关的类型噪音。
+    "skipLibCheck": true,
+    // 开启严格模式，保证共享协议和跨进程数据结构尽量早暴露问题。
+    "strict": true,
+    // 使用 Bundler 解析策略，更贴近 Vite / ESM 工程。
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": false,
+    // 允许导入 JSON，便于未来接配置或静态数据。
+    "resolveJsonModule": true,
+    // 要求每个文件可独立转译，符合 Vite/SFC 编译方式。
+    "isolatedModules": true,
+    // 兼容部分 CommonJS 风格依赖导入。
+    "esModuleInterop": true,
+    // 类型检查项目不直接由 tsc 产出构建文件，构建交给 electron-vite。
+    "noEmit": true,
+    // 保留 JSX 语义，虽然当前项目用 Vue，但这项通常由前端构建链处理。
+    "jsx": "preserve",
+    // 提供 Node 类型，供 Electron 主进程和预加载层使用。
+    "types": ["node"],
+    // 配合 paths 做项目级别名，避免大量 ../../ 相对路径。
+    "baseUrl": ".",
+    "paths": {
+      "@main/*": ["electron/main/*"],
+      "@renderer/*": ["src/renderer/src/*"],
+      "@shared/*": ["src/shared/*"]
+    }
+  },
+  "include": [
+    // 主进程与预加载。
+    "electron/**/*.ts",
+    // 渲染层与共享层源码。
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.vue",
+    // 把构建和规范配置也纳入类型系统检查范围。
+    "electron.vite.config.ts",
+    "eslint.config.mjs",
+    "prettier.config.mjs"
+  ]
+}
