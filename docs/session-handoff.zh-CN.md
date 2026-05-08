@@ -26,6 +26,38 @@
 
 ## 本次已经完成的工作
 
+### 0. 首页已改成组件化的 Figma 还原页
+
+本次新增了一套首页专用组件，目标是把首页还原成接近设计稿的学习/会议门户样式，同时不破坏现有多窗口会议逻辑。
+
+当前首页结构已经调整为：
+
+- 顶部固定高度导航栏
+- 左侧固定宽度侧边导航
+- 右侧自适应内容区
+- 学习卡片区与会议列表区分别拆成独立组件
+
+本次新增的核心文件包括：
+
+- [src/renderer/src/components/home/LearningShell.vue](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/components/home/LearningShell.vue)
+- [src/renderer/src/components/home/LearningTopBar.vue](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/components/home/LearningTopBar.vue)
+- [src/renderer/src/components/home/LearningSidebar.vue](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/components/home/LearningSidebar.vue)
+- [src/renderer/src/components/home/StudyCard.vue](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/components/home/StudyCard.vue)
+- [src/renderer/src/components/home/MeetingScheduleSection.vue](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/components/home/MeetingScheduleSection.vue)
+- [src/renderer/src/components/home/MeetingRow.vue](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/components/home/MeetingRow.vue)
+- [src/renderer/src/types/home.ts](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/types/home.ts)
+
+首页入口仍然是：
+
+- [src/renderer/src/pages/HomePage.vue](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/pages/HomePage.vue)
+
+需要注意：
+
+- 这次改动主要是展示层重构
+- `window.electronAPI.shell.createMeetingWindow()` 的打开会议能力仍然保留
+- 顶部“快速会议”和会议列表里的“入会”仍然会打开现有会议工作区
+- 目前课程卡片和会议数据仍然是页面内静态假数据，用于还原设计稿
+
 ### 1. 给源码补了详细注释
 
 已经覆盖：
@@ -93,6 +125,7 @@
 - 同一会议下多个窗口共享同一份状态
 - 支持实时同步和批量同步两类频道策略
 - `B` 窗口关闭时自动关闭所有子窗口并销毁会议状态
+- 首页现在已经不是原来的深色示例面板，而是偏业务化的浅色门户页
 
 ## 下次进入项目时，应该先看什么
 
@@ -180,6 +213,7 @@
 - 让不同子窗口展示真正不同的内容
 - 增加更多会议控制区
 - 补更完整的状态可视化
+- 把首页当前静态课程卡片和会议列表接到真实数据源
 
 ## 如果下次只剩几分钟，最低限度看哪份
 

@@ -1,33 +1,141 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import WorkspaceLayout from '@renderer/layouts/WorkspaceLayout.vue'
-import StatPanel from '@renderer/components/StatPanel.vue'
-import WindowBadge from '@renderer/components/WindowBadge.vue'
+import LearningShell from '@renderer/components/home/LearningShell.vue'
+import LearningSidebar from '@renderer/components/home/LearningSidebar.vue'
+import LearningTopBar from '@renderer/components/home/LearningTopBar.vue'
+import MeetingScheduleSection from '@renderer/components/home/MeetingScheduleSection.vue'
+import StudyCard from '@renderer/components/home/StudyCard.vue'
+import type { HomeNavItem, MeetingRowData, ShortcutItem, StudyCardData } from '@renderer/types/home'
 
-/**
- * 已从大厅打开过的会议 ID 列表。
- * 作用：在 UI 中展示大厅窗口触发过哪些会议实例。
- * 为什么要有：这个列表可以直观看出大厅窗口只负责“发起会议”，不参与会议实时状态。
- */
 const openedMeetings = ref<string[]>([])
-
-/**
- * 会议窗口创建中的加载标记。
- * 作用：防止用户在主进程尚未返回时连续点击按钮。
- * 为什么要有：重复触发会连续开多个会议窗口，体验和示例意图都不合适。
- */
 const creating = ref(false)
 
-/**
- * 请求主进程创建新的会议工作区。
- * 作用：演示大厅窗口到主进程再到会议根窗口的完整打开链路。
- * 为什么要有：大厅页的存在意义就是把“会前入口”和“会中状态域”明确分离。
- */
+const shortcuts: ShortcutItem[] = [
+  { label: '首页', icon: 'home', active: true },
+  { label: '收藏', icon: 'heart' },
+  { label: '学习', icon: 'library' }
+]
+
+const navItems: HomeNavItem[] = [
+  { label: '首页', icon: 'home', active: true },
+  { label: '我的课程', icon: 'heart' },
+  { label: '历史会议', icon: 'history' },
+  { label: '我的群聊', icon: 'team' }
+]
+
+const studyCards: StudyCardData[] = [
+  {
+    title: '建设书香企业读书公开直播',
+    subtitle: '4.23 全民阅读活动',
+    coverClass: 'cover-book',
+    badges: ['直播预约', '直播预约', '直播预约']
+  },
+  {
+    title: '建设书香企业读书公开直播',
+    subtitle: '4.23 全民阅读活动',
+    coverClass: 'cover-orange',
+    badges: []
+  },
+  {
+    title: '战略谈判力·第136期',
+    subtitle: '12.12 20:00-12.25 21:00',
+    coverClass: 'cover-blue',
+    badges: ['会议预约', '会议进行中']
+  },
+  {
+    title: '道德经夜话 第27期',
+    subtitle: '21:00-22:00',
+    coverClass: 'cover-sky',
+    badges: []
+  }
+]
+
+const todayMeetings: MeetingRowData[] = [
+  {
+    time: '06:30-7:30',
+    status: '进行中',
+    statusTone: 'live',
+    badge: '置顶',
+    title: '张官海创建的会议室',
+    meetingCode: '419 610 056'
+  },
+  {
+    time: '07:30-9:30',
+    status: '待开始',
+    statusTone: 'upcoming',
+    title: '战略夜话“团队同频的干活”',
+    meetingCode: '419 610 056',
+    meta: '周期'
+  },
+  {
+    time: '10:30-12:30',
+    status: '待开始',
+    statusTone: 'upcoming',
+    badge: '公开',
+    title: '「家庭幸福型企业」深度交流',
+    meetingCode: '419 610 056',
+    highlighted: true,
+    joinable: true,
+    showMore: true
+  },
+  {
+    time: '14:30-21:30',
+    date: '12.24',
+    status: '待开始',
+    statusTone: 'upcoming',
+    title: '浙江、内蒙古地区成长例会浙江、内蒙古地区成长例会成长例会成长例会',
+    meetingCode: '419 610 056'
+  },
+  {
+    time: '17:30-19:30',
+    status: '待开始',
+    statusTone: 'upcoming',
+    title: '浙江、内蒙古地区成长例会浙江、内蒙古地区成长例会成长例会成长例会',
+    meetingCode: '419 610 056'
+  },
+  {
+    time: '20:30-22:30',
+    status: '待开始',
+    statusTone: 'upcoming',
+    title: '「家庭幸福型企业」深度交流',
+    meetingCode: '419 610 056'
+  }
+]
+
+const upcomingMeetings: MeetingRowData[] = [
+  {
+    time: '06:30-7:30',
+    date: '8.2',
+    status: '待开始',
+    statusTone: 'upcoming',
+    badge: '置顶',
+    title: '张官海创建的会议室',
+    meetingCode: '419 610 056'
+  },
+  {
+    time: '07:30-9:30',
+    date: '8.2-8.3',
+    status: '待开始',
+    statusTone: 'upcoming',
+    title: '战略夜话“团队同频的干活”',
+    meetingCode: '419 610 056',
+    meta: '周期'
+  },
+  {
+    time: '07:30-9:30',
+    date: '8.3',
+    status: '待开始',
+    statusTone: 'upcoming',
+    title: '战略夜话“团队同频的干活”',
+    meetingCode: '419 610 056',
+    meta: '周期'
+  }
+]
+
 const createMeeting = async (): Promise<void> => {
   creating.value = true
   try {
     const response = await window.electronAPI.shell.createMeetingWindow()
-    // 最新创建的会议排在最前面，便于观察刚刚打开的会议实例。
     openedMeetings.value.unshift(response.meetingId)
   } finally {
     creating.value = false
@@ -36,56 +144,78 @@ const createMeeting = async (): Promise<void> => {
 </script>
 
 <template>
-  <WorkspaceLayout
-    title="会议大厅"
-    subtitle="A 窗口与会中实时状态隔离，只负责打开新的会议工作区。"
-    role-label="A 窗口"
-  >
-    <template #actions>
-      <!-- 大厅页唯一关键动作：请求主进程打开新的会议根窗口。 -->
-      <button class="primary-button" :disabled="creating" @click="createMeeting">
-        {{ creating ? '打开中...' : '打开会议工作区' }}
-      </button>
+  <LearningShell>
+    <template #header>
+      <LearningTopBar :shortcuts="shortcuts" :creating="creating" @quick-meeting="createMeeting" />
     </template>
 
-    <!-- 顶部指标区用来快速解释这个大厅窗口在整套架构里的定位。 -->
-    <section class="hero-grid">
-      <StatPanel title="共享状态归属" value="主进程" caption="跨窗口会议状态统一保存在 Electron 主进程中。" />
-      <StatPanel title="实例隔离" value="meetingId" caption="每个 B 窗口都拥有独立的会议状态域。" />
-      <StatPanel title="窗口策略" value="window.open" caption="子窗口从 B 窗口发起，并由主进程统一登记。" />
+    <template #sidebar>
+      <LearningSidebar :items="navItems" />
+    </template>
+
+    <section class="study-section">
+      <div class="section-title-row">
+        <div>
+          <h1>今日学习</h1>
+          <p v-if="openedMeetings.length > 0">最近打开的会议工作区：{{ openedMeetings[0] }}</p>
+        </div>
+      </div>
+
+      <div class="study-grid">
+        <StudyCard v-for="card in studyCards" :key="`${card.title}-${card.coverClass}`" :card="card" />
+      </div>
     </section>
 
-    <!-- 下方左侧展示大厅页已经发起过哪些会议，强调它只是入口而不是会中窗口。 -->
-    <section class="panel-grid">
-      <article class="panel">
-        <div class="panel-head">
-          <h2>从大厅发起的会议</h2>
-          <WindowBadge label="A -> B" accent="gold" />
-        </div>
-        <p>每次点击都会打开一个新的会议窗口，并在主进程里创建独立的共享状态容器。</p>
-        <ul class="meeting-list">
-          <li v-for="meetingId in openedMeetings" :key="meetingId">
-            <strong>{{ meetingId }}</strong>
-          </li>
-          <li v-if="openedMeetings.length === 0" class="empty-state">
-            还没有打开任何会议工作区。
-          </li>
-        </ul>
-      </article>
-
-      <!-- 右侧说明当前脚手架已经内置了哪些关键能力，帮助快速理解项目边界。 -->
-      <article class="panel">
-        <div class="panel-head">
-          <h2>脚手架内置能力</h2>
-          <WindowBadge label="基础能力" />
-        </div>
-        <ul class="bullet-list">
-          <li>会议根窗口，以及五种子窗口类型</li>
-          <li>用于快照读取和共享状态更新的 IPC 桥</li>
-          <li>支持按频道配置实时或批量同步策略</li>
-          <li>会议根窗口关闭时自动执行完整清理</li>
-        </ul>
-      </article>
-    </section>
-  </WorkspaceLayout>
+    <MeetingScheduleSection title="今日会议（8月1日·周四）" :meetings="todayMeetings" @join="createMeeting" />
+    <MeetingScheduleSection title="将来会议" :meetings="upcomingMeetings" />
+  </LearningShell>
 </template>
+
+<style scoped>
+.study-section {
+  margin-bottom: 26px;
+}
+
+.section-title-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.section-title-row h1 {
+  margin: 0;
+  color: #272d3a;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.section-title-row p {
+  margin: 8px 0 0;
+  color: #9aa2b3;
+  font-size: 0.9rem;
+}
+
+.study-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+@media (max-width: 1280px) {
+  .study-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .section-title-row h1 {
+    font-size: 1.6rem;
+  }
+
+  .study-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
