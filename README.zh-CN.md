@@ -4,8 +4,8 @@
 
 中文文档总导航：
 
-- [docs/index.zh-CN.md](/Users/m/工作/electron/docs/index.zh-CN.md)
-- [docs/session-handoff.zh-CN.md](/Users/m/工作/electron/docs/session-handoff.zh-CN.md)
+- [docs/index.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/index.zh-CN.md)
+- [docs/session-handoff.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/session-handoff.zh-CN.md)
 
 它当前重点解决的问题不是音视频本身，而是：
 
@@ -61,7 +61,7 @@
 
 对应文件：
 
-- [HomePage.vue](/Users/m/工作/electron/src/renderer/src/pages/HomePage.vue)
+- [HomePage.vue](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/pages/HomePage.vue)
 
 ### Window B：会议根窗口
 
@@ -78,7 +78,7 @@
 
 对应文件：
 
-- [MeetingPage.vue](/Users/m/工作/electron/src/renderer/src/pages/MeetingPage.vue)
+- [MeetingPage.vue](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/pages/MeetingPage.vue)
 
 ### 子窗口
 
@@ -94,14 +94,14 @@
 
 对应文件：
 
-- [ChildWindowPage.vue](/Users/m/工作/electron/src/renderer/src/pages/ChildWindowPage.vue)
-- [childWindows.ts](/Users/m/工作/electron/src/renderer/src/utils/childWindows.ts)
+- [ChildWindowPage.vue](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/pages/ChildWindowPage.vue)
+- [childWindows.ts](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/utils/childWindows.ts)
 
 ## 状态结构
 
 共享状态定义在：
 
-- [meeting.ts](/Users/m/工作/electron/src/shared/meeting.ts)
+- [meeting.ts](/Users/m/工作/electron-vite-vue3-ts/src/shared/meeting.ts)
 
 当前频道包括：
 
@@ -183,18 +183,18 @@ docs/         项目结构与流程文档
 
 建议阅读顺序：
 
-1. [README.md](/Users/m/工作/electron/README.md)
-2. [README.zh-CN.md](/Users/m/工作/electron/README.zh-CN.md)
-3. [src/shared/window.ts](/Users/m/工作/electron/src/shared/window.ts)
-4. [src/shared/ipc.ts](/Users/m/工作/electron/src/shared/ipc.ts)
-5. [src/shared/meeting.ts](/Users/m/工作/electron/src/shared/meeting.ts)
-6. [electron/main/services/window-registry.ts](/Users/m/工作/electron/electron/main/services/window-registry.ts)
-7. [electron/main/services/meeting-hub.ts](/Users/m/工作/electron/electron/main/services/meeting-hub.ts)
-8. [src/renderer/src/stores/meetingSession.ts](/Users/m/工作/electron/src/renderer/src/stores/meetingSession.ts)
-9. [src/renderer/src/pages/MeetingPage.vue](/Users/m/工作/electron/src/renderer/src/pages/MeetingPage.vue)
-10. [docs/project-architecture-notes.zh-CN.md](/Users/m/工作/electron/docs/project-architecture-notes.zh-CN.md)
-11. [docs/page-flow-notes.zh-CN.md](/Users/m/工作/electron/docs/page-flow-notes.zh-CN.md)
-12. [docs/sequence-diagrams.zh-CN.md](/Users/m/工作/electron/docs/sequence-diagrams.zh-CN.md)
+1. [README.md](/Users/m/工作/electron-vite-vue3-ts/README.md)
+2. [README.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/README.zh-CN.md)
+3. [src/shared/window.ts](/Users/m/工作/electron-vite-vue3-ts/src/shared/window.ts)
+4. [src/shared/ipc.ts](/Users/m/工作/electron-vite-vue3-ts/src/shared/ipc.ts)
+5. [src/shared/meeting.ts](/Users/m/工作/electron-vite-vue3-ts/src/shared/meeting.ts)
+6. [electron/main/services/window-registry.ts](/Users/m/工作/electron-vite-vue3-ts/electron/main/services/window-registry.ts)
+7. [electron/main/services/meeting-hub.ts](/Users/m/工作/electron-vite-vue3-ts/electron/main/services/meeting-hub.ts)
+8. [src/renderer/src/stores/meetingSession.ts](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/stores/meetingSession.ts)
+9. [src/renderer/src/pages/MeetingPage.vue](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/pages/MeetingPage.vue)
+10. [docs/project-architecture-notes.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/project-architecture-notes.zh-CN.md)
+11. [docs/page-flow-notes.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/page-flow-notes.zh-CN.md)
+12. [docs/sequence-diagrams.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/sequence-diagrams.zh-CN.md)
 
 ## 适合拿这个项目做什么
 

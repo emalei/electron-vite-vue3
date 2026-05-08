@@ -8,7 +8,7 @@
 
 从这次开始，约定如下：
 
-- 以后每次有实质变化，就自动更新 [docs/session-handoff.zh-CN.md](/Users/m/工作/electron/docs/session-handoff.zh-CN.md)
+- 以后每次有实质变化，就自动更新 [docs/session-handoff.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/session-handoff.zh-CN.md)
 
 这里的“实质变化”包括：
 
@@ -48,11 +48,11 @@
 
 当前已有文档：
 
-- [docs/index.zh-CN.md](/Users/m/工作/electron/docs/index.zh-CN.md)
-- [README.zh-CN.md](/Users/m/工作/electron/README.zh-CN.md)
-- [project-architecture-notes.zh-CN.md](/Users/m/工作/electron/docs/project-architecture-notes.zh-CN.md)
-- [page-flow-notes.zh-CN.md](/Users/m/工作/electron/docs/page-flow-notes.zh-CN.md)
-- [sequence-diagrams.zh-CN.md](/Users/m/工作/electron/docs/sequence-diagrams.zh-CN.md)
+- [docs/index.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/index.zh-CN.md)
+- [README.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/README.zh-CN.md)
+- [project-architecture-notes.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/project-architecture-notes.zh-CN.md)
+- [page-flow-notes.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/page-flow-notes.zh-CN.md)
+- [sequence-diagrams.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/sequence-diagrams.zh-CN.md)
 
 ### 3. 做过静态验证
 
@@ -98,14 +98,14 @@
 
 推荐最短恢复路径：
 
-1. [docs/index.zh-CN.md](/Users/m/工作/electron/docs/index.zh-CN.md)
-2. [docs/session-handoff.zh-CN.md](/Users/m/工作/electron/docs/session-handoff.zh-CN.md)
-3. [project-architecture-notes.zh-CN.md](/Users/m/工作/electron/docs/project-architecture-notes.zh-CN.md)
+1. [docs/index.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/index.zh-CN.md)
+2. [docs/session-handoff.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/session-handoff.zh-CN.md)
+3. [project-architecture-notes.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/project-architecture-notes.zh-CN.md)
 
 如果想连页面和调用顺序一起恢复，再继续看：
 
-4. [page-flow-notes.zh-CN.md](/Users/m/工作/electron/docs/page-flow-notes.zh-CN.md)
-5. [sequence-diagrams.zh-CN.md](/Users/m/工作/electron/docs/sequence-diagrams.zh-CN.md)
+4. [page-flow-notes.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/page-flow-notes.zh-CN.md)
+5. [sequence-diagrams.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/sequence-diagrams.zh-CN.md)
 
 ## 下次对助手可以直接说什么
 
@@ -185,8 +185,8 @@
 
 只看这两份就够恢复大部分上下文：
 
-- [docs/session-handoff.zh-CN.md](/Users/m/工作/electron/docs/session-handoff.zh-CN.md)
-- [docs/index.zh-CN.md](/Users/m/工作/electron/docs/index.zh-CN.md)
+- [docs/session-handoff.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/session-handoff.zh-CN.md)
+- [docs/index.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/index.zh-CN.md)
 
 ## 这份文件为什么单独存在
 

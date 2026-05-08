@@ -22,8 +22,8 @@ when one feature is split across several Electron windows, state must not live i
 
 Files:
 
-- [HomePage.vue](/Users/m/工作/electron/src/renderer/src/pages/HomePage.vue)
-- [window-registry.ts](/Users/m/工作/electron/electron/main/services/window-registry.ts)
+- [HomePage.vue](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/pages/HomePage.vue)
+- [window-registry.ts](/Users/m/工作/electron-vite-vue3-ts/electron/main/services/window-registry.ts)
 
 Role:
 
@@ -41,8 +41,8 @@ Why it exists:
 
 Files:
 
-- [MeetingPage.vue](/Users/m/工作/electron/src/renderer/src/pages/MeetingPage.vue)
-- [meetingSession.ts](/Users/m/工作/electron/src/renderer/src/stores/meetingSession.ts)
+- [MeetingPage.vue](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/pages/MeetingPage.vue)
+- [meetingSession.ts](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/stores/meetingSession.ts)
 
 Role:
 
@@ -60,9 +60,9 @@ Why it exists:
 
 Files:
 
-- [ChildWindowPage.vue](/Users/m/工作/electron/src/renderer/src/pages/ChildWindowPage.vue)
-- [childWindows.ts](/Users/m/工作/electron/src/renderer/src/utils/childWindows.ts)
-- [window.ts](/Users/m/工作/electron/src/shared/window.ts)
+- [ChildWindowPage.vue](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/pages/ChildWindowPage.vue)
+- [childWindows.ts](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/utils/childWindows.ts)
+- [window.ts](/Users/m/工作/electron-vite-vue3-ts/src/shared/window.ts)
 
 Role:
 
@@ -82,8 +82,8 @@ Why they exist:
 
 Files:
 
-- [meeting-hub.ts](/Users/m/工作/electron/electron/main/services/meeting-hub.ts)
-- [meeting.ts](/Users/m/工作/electron/src/shared/meeting.ts)
+- [meeting-hub.ts](/Users/m/工作/electron-vite-vue3-ts/electron/main/services/meeting-hub.ts)
+- [meeting.ts](/Users/m/工作/electron-vite-vue3-ts/src/shared/meeting.ts)
 
 The main process is the source of truth for meeting state.
 
@@ -157,9 +157,9 @@ Why batched exists:
 
 Files:
 
-- [ipc.ts](/Users/m/工作/electron/src/shared/ipc.ts)
-- [register-ipc.ts](/Users/m/工作/electron/electron/main/ipc/register-ipc.ts)
-- [preload/index.ts](/Users/m/工作/electron/electron/preload/index.ts)
+- [ipc.ts](/Users/m/工作/electron-vite-vue3-ts/src/shared/ipc.ts)
+- [register-ipc.ts](/Users/m/工作/electron-vite-vue3-ts/electron/main/ipc/register-ipc.ts)
+- [preload/index.ts](/Users/m/工作/electron-vite-vue3-ts/electron/preload/index.ts)
 
 Current IPC responsibilities:
 
@@ -181,7 +181,7 @@ Why this design exists:
 
 File:
 
-- [router/index.ts](/Users/m/工作/electron/src/renderer/src/router/index.ts)
+- [router/index.ts](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/router/index.ts)
 
 Role:
 
@@ -196,7 +196,7 @@ Why it exists:
 
 File:
 
-- [meetingSession.ts](/Users/m/工作/electron/src/renderer/src/stores/meetingSession.ts)
+- [meetingSession.ts](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/stores/meetingSession.ts)
 
 Role:
 
@@ -214,10 +214,10 @@ Why it exists:
 
 Files:
 
-- [WorkspaceLayout.vue](/Users/m/工作/electron/src/renderer/src/layouts/WorkspaceLayout.vue)
-- [StatPanel.vue](/Users/m/工作/electron/src/renderer/src/components/StatPanel.vue)
-- [WindowBadge.vue](/Users/m/工作/electron/src/renderer/src/components/WindowBadge.vue)
-- [main.css](/Users/m/工作/electron/src/renderer/src/styles/main.css)
+- [WorkspaceLayout.vue](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/layouts/WorkspaceLayout.vue)
+- [StatPanel.vue](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/components/StatPanel.vue)
+- [WindowBadge.vue](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/components/WindowBadge.vue)
+- [main.css](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/styles/main.css)
 
 Role:
 
@@ -238,8 +238,8 @@ Important rule:
 
 Files:
 
-- [window-registry.ts](/Users/m/工作/electron/electron/main/services/window-registry.ts)
-- [meeting-hub.ts](/Users/m/工作/electron/electron/main/services/meeting-hub.ts)
+- [window-registry.ts](/Users/m/工作/electron-vite-vue3-ts/electron/main/services/window-registry.ts)
+- [meeting-hub.ts](/Users/m/工作/electron-vite-vue3-ts/electron/main/services/meeting-hub.ts)
 
 Why this rule exists:
 
@@ -273,14 +273,14 @@ That separation keeps the architecture understandable:
 
 If you want to understand the project quickly, read in this order:
 
-1. [README.md](/Users/m/工作/electron/README.md)
-2. [src/shared/meeting.ts](/Users/m/工作/electron/src/shared/meeting.ts)
-3. [src/shared/ipc.ts](/Users/m/工作/electron/src/shared/ipc.ts)
-4. [electron/main/services/meeting-hub.ts](/Users/m/工作/electron/electron/main/services/meeting-hub.ts)
-5. [electron/main/services/window-registry.ts](/Users/m/工作/electron/electron/main/services/window-registry.ts)
-6. [src/renderer/src/stores/meetingSession.ts](/Users/m/工作/electron/src/renderer/src/stores/meetingSession.ts)
-7. [src/renderer/src/pages/MeetingPage.vue](/Users/m/工作/electron/src/renderer/src/pages/MeetingPage.vue)
-8. [src/renderer/src/pages/ChildWindowPage.vue](/Users/m/工作/electron/src/renderer/src/pages/ChildWindowPage.vue)
+1. [README.md](/Users/m/工作/electron-vite-vue3-ts/README.md)
+2. [src/shared/meeting.ts](/Users/m/工作/electron-vite-vue3-ts/src/shared/meeting.ts)
+3. [src/shared/ipc.ts](/Users/m/工作/electron-vite-vue3-ts/src/shared/ipc.ts)
+4. [electron/main/services/meeting-hub.ts](/Users/m/工作/electron-vite-vue3-ts/electron/main/services/meeting-hub.ts)
+5. [electron/main/services/window-registry.ts](/Users/m/工作/electron-vite-vue3-ts/electron/main/services/window-registry.ts)
+6. [src/renderer/src/stores/meetingSession.ts](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/stores/meetingSession.ts)
+7. [src/renderer/src/pages/MeetingPage.vue](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/pages/MeetingPage.vue)
+8. [src/renderer/src/pages/ChildWindowPage.vue](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/pages/ChildWindowPage.vue)
 
 ## Current Functional Summary
 

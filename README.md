@@ -4,12 +4,12 @@ Electron + Vue 3 + TypeScript meeting foundation focused on multi-window state s
 
 ## Chinese Docs
 
-- [docs/index.zh-CN.md](/Users/m/工作/electron/docs/index.zh-CN.md)
-- [docs/session-handoff.zh-CN.md](/Users/m/工作/electron/docs/session-handoff.zh-CN.md)
-- [README.zh-CN.md](/Users/m/工作/electron/README.zh-CN.md)
-- [docs/project-architecture-notes.zh-CN.md](/Users/m/工作/electron/docs/project-architecture-notes.zh-CN.md)
-- [docs/page-flow-notes.zh-CN.md](/Users/m/工作/electron/docs/page-flow-notes.zh-CN.md)
-- [docs/sequence-diagrams.zh-CN.md](/Users/m/工作/electron/docs/sequence-diagrams.zh-CN.md)
+- [docs/index.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/index.zh-CN.md)
+- [docs/session-handoff.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/session-handoff.zh-CN.md)
+- [README.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/README.zh-CN.md)
+- [docs/project-architecture-notes.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/project-architecture-notes.zh-CN.md)
+- [docs/page-flow-notes.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/page-flow-notes.zh-CN.md)
+- [docs/sequence-diagrams.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/sequence-diagrams.zh-CN.md)
 
 ## Included
 

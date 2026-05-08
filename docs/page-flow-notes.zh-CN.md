@@ -6,10 +6,10 @@
 
 涉及文件：
 
-- [electron/main/index.ts](/Users/m/工作/electron/electron/main/index.ts)
-- [electron/preload/index.ts](/Users/m/工作/electron/electron/preload/index.ts)
-- [src/renderer/src/main.ts](/Users/m/工作/electron/src/renderer/src/main.ts)
-- [src/renderer/src/App.vue](/Users/m/工作/electron/src/renderer/src/App.vue)
+- [electron/main/index.ts](/Users/m/工作/electron-vite-vue3-ts/electron/main/index.ts)
+- [electron/preload/index.ts](/Users/m/工作/electron-vite-vue3-ts/electron/preload/index.ts)
+- [src/renderer/src/main.ts](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/main.ts)
+- [src/renderer/src/App.vue](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/App.vue)
 
 流程：
 
@@ -43,7 +43,7 @@
 
 代码位置：
 
-- [HomePage.vue](/Users/m/工作/electron/src/renderer/src/pages/HomePage.vue)
+- [HomePage.vue](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/pages/HomePage.vue)
 
 作用：
 
@@ -338,8 +338,8 @@
 
 涉及文件：
 
-- [register-ipc.ts](/Users/m/工作/electron/electron/main/ipc/register-ipc.ts)
-- [meeting-hub.ts](/Users/m/工作/electron/electron/main/services/meeting-hub.ts)
+- [register-ipc.ts](/Users/m/工作/electron-vite-vue3-ts/electron/main/ipc/register-ipc.ts)
+- [meeting-hub.ts](/Users/m/工作/electron-vite-vue3-ts/electron/main/services/meeting-hub.ts)
 
 当任意窗口发起状态修改时，内部顺序是：
 
@@ -363,7 +363,7 @@
 
 涉及文件：
 
-- [window-registry.ts](/Users/m/工作/electron/electron/main/services/window-registry.ts)
+- [window-registry.ts](/Users/m/工作/electron-vite-vue3-ts/electron/main/services/window-registry.ts)
 
 ### 会议根窗口关闭时
 

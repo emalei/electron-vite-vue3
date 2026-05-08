@@ -10,7 +10,7 @@
 
 看：
 
-- [session-handoff.zh-CN.md](/Users/m/工作/electron/docs/session-handoff.zh-CN.md)
+- [session-handoff.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/session-handoff.zh-CN.md)
 
 适合场景：
 
@@ -23,7 +23,7 @@
 
 看：
 
-- [README.zh-CN.md](/Users/m/工作/electron/README.zh-CN.md)
+- [README.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/README.zh-CN.md)
 
 适合场景：
 
@@ -35,7 +35,7 @@
 
 看：
 
-- [project-architecture-notes.zh-CN.md](/Users/m/工作/electron/docs/project-architecture-notes.zh-CN.md)
+- [project-architecture-notes.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/project-architecture-notes.zh-CN.md)
 
 适合场景：
 
@@ -47,7 +47,7 @@
 
 看：
 
-- [page-flow-notes.zh-CN.md](/Users/m/工作/electron/docs/page-flow-notes.zh-CN.md)
+- [page-flow-notes.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/page-flow-notes.zh-CN.md)
 
 适合场景：
 
@@ -59,7 +59,7 @@
 
 看：
 
-- [sequence-diagrams.zh-CN.md](/Users/m/工作/electron/docs/sequence-diagrams.zh-CN.md)
+- [sequence-diagrams.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/sequence-diagrams.zh-CN.md)
 
 适合场景：
 
@@ -71,10 +71,10 @@
 
 ### 路径一：第一次读这个项目
 
-1. [README.zh-CN.md](/Users/m/工作/electron/README.zh-CN.md)
-2. [project-architecture-notes.zh-CN.md](/Users/m/工作/electron/docs/project-architecture-notes.zh-CN.md)
-3. [page-flow-notes.zh-CN.md](/Users/m/工作/electron/docs/page-flow-notes.zh-CN.md)
-4. [sequence-diagrams.zh-CN.md](/Users/m/工作/electron/docs/sequence-diagrams.zh-CN.md)
+1. [README.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/README.zh-CN.md)
+2. [project-architecture-notes.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/project-architecture-notes.zh-CN.md)
+3. [page-flow-notes.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/page-flow-notes.zh-CN.md)
+4. [sequence-diagrams.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/sequence-diagrams.zh-CN.md)
 
 为什么这样排：
 
@@ -85,9 +85,9 @@
 
 ### 路径二：准备开始改代码
 
-1. [project-architecture-notes.zh-CN.md](/Users/m/工作/electron/docs/project-architecture-notes.zh-CN.md)
-2. [sequence-diagrams.zh-CN.md](/Users/m/工作/electron/docs/sequence-diagrams.zh-CN.md)
-3. [page-flow-notes.zh-CN.md](/Users/m/工作/electron/docs/page-flow-notes.zh-CN.md)
+1. [project-architecture-notes.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/project-architecture-notes.zh-CN.md)
+2. [sequence-diagrams.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/sequence-diagrams.zh-CN.md)
+3. [page-flow-notes.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/page-flow-notes.zh-CN.md)
 
 为什么这样排：
 
@@ -99,35 +99,35 @@
 
 如果你的问题是这些，优先看这里：
 
-- “为什么这个状态要放主进程？” -> [project-architecture-notes.zh-CN.md](/Users/m/工作/electron/docs/project-architecture-notes.zh-CN.md)
-- “这个按钮点了之后调用顺序是什么？” -> [sequence-diagrams.zh-CN.md](/Users/m/工作/electron/docs/sequence-diagrams.zh-CN.md)
-- “这个页面到底负责什么？” -> [page-flow-notes.zh-CN.md](/Users/m/工作/electron/docs/page-flow-notes.zh-CN.md)
-- “这个仓库整体是干嘛的？” -> [README.zh-CN.md](/Users/m/工作/electron/README.zh-CN.md)
+- “为什么这个状态要放主进程？” -> [project-architecture-notes.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/project-architecture-notes.zh-CN.md)
+- “这个按钮点了之后调用顺序是什么？” -> [sequence-diagrams.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/sequence-diagrams.zh-CN.md)
+- “这个页面到底负责什么？” -> [page-flow-notes.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/page-flow-notes.zh-CN.md)
+- “这个仓库整体是干嘛的？” -> [README.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/README.zh-CN.md)
 
 ## 对照源码怎么读
 
 如果你想一边看文档一边看源码，推荐按下面顺序打开文件：
 
-1. [src/shared/window.ts](/Users/m/工作/electron/src/shared/window.ts)
-2. [src/shared/ipc.ts](/Users/m/工作/electron/src/shared/ipc.ts)
-3. [src/shared/meeting.ts](/Users/m/工作/electron/src/shared/meeting.ts)
-4. [electron/main/index.ts](/Users/m/工作/electron/electron/main/index.ts)
-5. [electron/main/services/window-registry.ts](/Users/m/工作/electron/electron/main/services/window-registry.ts)
-6. [electron/main/services/meeting-hub.ts](/Users/m/工作/electron/electron/main/services/meeting-hub.ts)
-7. [electron/preload/index.ts](/Users/m/工作/electron/electron/preload/index.ts)
-8. [src/renderer/src/stores/meetingSession.ts](/Users/m/工作/electron/src/renderer/src/stores/meetingSession.ts)
-9. [src/renderer/src/pages/HomePage.vue](/Users/m/工作/electron/src/renderer/src/pages/HomePage.vue)
-10. [src/renderer/src/pages/MeetingPage.vue](/Users/m/工作/electron/src/renderer/src/pages/MeetingPage.vue)
-11. [src/renderer/src/pages/ChildWindowPage.vue](/Users/m/工作/electron/src/renderer/src/pages/ChildWindowPage.vue)
+1. [src/shared/window.ts](/Users/m/工作/electron-vite-vue3-ts/src/shared/window.ts)
+2. [src/shared/ipc.ts](/Users/m/工作/electron-vite-vue3-ts/src/shared/ipc.ts)
+3. [src/shared/meeting.ts](/Users/m/工作/electron-vite-vue3-ts/src/shared/meeting.ts)
+4. [electron/main/index.ts](/Users/m/工作/electron-vite-vue3-ts/electron/main/index.ts)
+5. [electron/main/services/window-registry.ts](/Users/m/工作/electron-vite-vue3-ts/electron/main/services/window-registry.ts)
+6. [electron/main/services/meeting-hub.ts](/Users/m/工作/electron-vite-vue3-ts/electron/main/services/meeting-hub.ts)
+7. [electron/preload/index.ts](/Users/m/工作/electron-vite-vue3-ts/electron/preload/index.ts)
+8. [src/renderer/src/stores/meetingSession.ts](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/stores/meetingSession.ts)
+9. [src/renderer/src/pages/HomePage.vue](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/pages/HomePage.vue)
+10. [src/renderer/src/pages/MeetingPage.vue](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/pages/MeetingPage.vue)
+11. [src/renderer/src/pages/ChildWindowPage.vue](/Users/m/工作/electron-vite-vue3-ts/src/renderer/src/pages/ChildWindowPage.vue)
 
 ## 当前中文文档清单
 
-- [README.zh-CN.md](/Users/m/工作/electron/README.zh-CN.md)
-- [index.zh-CN.md](/Users/m/工作/electron/docs/index.zh-CN.md)
-- [session-handoff.zh-CN.md](/Users/m/工作/electron/docs/session-handoff.zh-CN.md)
-- [project-architecture-notes.zh-CN.md](/Users/m/工作/electron/docs/project-architecture-notes.zh-CN.md)
-- [page-flow-notes.zh-CN.md](/Users/m/工作/electron/docs/page-flow-notes.zh-CN.md)
-- [sequence-diagrams.zh-CN.md](/Users/m/工作/electron/docs/sequence-diagrams.zh-CN.md)
+- [README.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/README.zh-CN.md)
+- [index.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/index.zh-CN.md)
+- [session-handoff.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/session-handoff.zh-CN.md)
+- [project-architecture-notes.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/project-architecture-notes.zh-CN.md)
+- [page-flow-notes.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/page-flow-notes.zh-CN.md)
+- [sequence-diagrams.zh-CN.md](/Users/m/工作/electron-vite-vue3-ts/docs/sequence-diagrams.zh-CN.md)
 
 ## 这页存在的意义
 
